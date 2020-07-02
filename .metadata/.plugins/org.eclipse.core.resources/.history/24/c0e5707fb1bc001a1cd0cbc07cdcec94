@@ -1,0 +1,14 @@
+package com.sahil.flappy;
+
+public class Main {
+	
+	//dimensions for window
+	private int width = 1280;
+	private int height = 720;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
