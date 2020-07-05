@@ -34,8 +34,8 @@ public class GamePanel extends JPanel{
 		}
 		
 	}
-	 
-	public void paint (Graphics g) { //need override method so that toolkit can use the method 
+	
+	private void paint (Graphics g) {
 		super.paint(g);
 		
 		g.drawImage(img, xCoor, 0, null);

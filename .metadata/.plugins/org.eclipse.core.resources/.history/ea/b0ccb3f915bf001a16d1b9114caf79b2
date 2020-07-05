@@ -1,8 +1,6 @@
 package clumsyBirdPac;
 
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -17,17 +15,10 @@ public class MenuPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private BufferedImage img = null; 
-	public boolean startingPoint = false; //if we are still on menu screen or game started
 	
 	public MenuPanel() {
 		LoadImage();
-		
-		this.addMouseListener(new MouseAdapter() { //method to handle changing from start screen to game when clicked using mouse
-			public void mouseClicked (MouseEvent e) {
-				super.mouseClicked(e);
-				startingPoint = true; //once clicked, boolean value becomes true allowing game to progress
-			}
-		});
+		//handle a mouse click event
 	}
 
 	private void LoadImage() { //takes in the image of the created menu panel and throws error otherwise
