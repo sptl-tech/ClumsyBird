@@ -18,8 +18,6 @@ public class GamePanel extends JPanel{
 	private int xCoor = 0; //inital x coordinate value which will change as game goes on
 	private BufferedImage img;
 	
-	BirdImage bi = new BirdImage();
-	
 	public GamePanel() {
 		LoadImage(); 
 		//pressing mouse event 
@@ -40,8 +38,6 @@ public class GamePanel extends JPanel{
 	public void paint (Graphics g) { //need override method so that toolkit can use the method 
 		super.paint(g);
 		
-		g.drawImage(img, xCoor, 0, null); //draws the initial game panel
-		bi.drawBird(g); //draws a bird on the game panel
-		
+		g.drawImage(img, xCoor, 0, null);
 	}
 }
