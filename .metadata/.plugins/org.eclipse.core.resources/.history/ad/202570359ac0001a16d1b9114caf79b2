@@ -20,8 +20,6 @@ public class GamePanel extends JPanel{
 	
 	BirdImage bi = new BirdImage();
 	WallImage wi = new WallImage(GamePanel.WIDTH);
-	WallImage wi2 = new WallImage(GamePanel.WIDTH + (GamePanel.WIDTH/2));
-	
 	public GamePanel() {
 		LoadImage(); 
 		//pressing mouse event 
@@ -44,7 +42,6 @@ public class GamePanel extends JPanel{
 		
 		g.drawImage(img, xCoor, 0, null); //draws the initial game panel
 		bi.drawBird(g); //draws a bird on the game panel
-		wi.drawWall(g); //draws first wall on game panel
-		wi2.drawWall(g); //draws second wall and loops through
-	} 
+		wi.drawWall(g); //draws the walls on game panel
+	}
 }

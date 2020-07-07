@@ -19,7 +19,7 @@ public class MainBird {
 		window.setSize(GamePanel.WIDTH, GamePanel.HEIGHT); //window dimensions (width, height)
 		window.setLocationRelativeTo(null); //pops up in middle of screen 
 		window.setTitle("Clumsy Bird"); 
-		window.setResizable(true); 
+		window.setResizable(false); 
 		window.setVisible(true);
 	}
 	
