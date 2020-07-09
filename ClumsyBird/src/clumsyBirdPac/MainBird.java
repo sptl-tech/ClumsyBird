@@ -32,6 +32,7 @@ public class MainBird {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				gp.repaint();
+				gp.Move();
 				
 			}
 		});

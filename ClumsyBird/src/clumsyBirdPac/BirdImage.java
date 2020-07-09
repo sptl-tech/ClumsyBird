@@ -15,6 +15,9 @@ public class BirdImage {
 	public static int x = (GamePanel.WIDTH / 2) - birdDiameter/2; //x coordinate for bird -- places bird halfway across the screen
 	public static int y = (GamePanel.HEIGHT/2); //y coordinate of bird -- places bird halfway up the screen 
 	
+	private static int speed =2;
+	private int accel = 1;
+	
 	public BirdImage() {
 		
 		LoadImage();
@@ -31,6 +34,26 @@ public class BirdImage {
 	
 	public void drawBird(Graphics g) { //method to draw bird on screen
 		g.drawImage(img, x, y, null);
+	}
+	
+	public void birdMovement() {
+		if(y>=0 && y<=GamePanel.HEIGHT) { //case if bird is on screen
+			speed += accel; 
+			y+=speed; //changes the birds relative height
+		}else { //sets back to initial values
+			reset();
+		}
+	}
+	
+	public void goUpwards() {
+		speed = -17; //reasoning is that y in bird movement is dependent on the speed, so negative speed will cause bird to have higher y coordinate
+		
+	}
+
+	private void reset() { 
+		speed = 2;
+		y = GamePanel.HEIGHT/2;
+		
 	}
 	
 }

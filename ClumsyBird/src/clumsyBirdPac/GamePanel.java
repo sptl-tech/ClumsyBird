@@ -1,6 +1,8 @@
 package clumsyBirdPac;
 
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -13,7 +15,7 @@ public class GamePanel extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final int WIDTH = 600;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 900;
 	
 	private int xCoor = 0; //inital x coordinate value which will change as game goes on
 	private BufferedImage img;
@@ -24,7 +26,12 @@ public class GamePanel extends JPanel{
 	
 	public GamePanel() {
 		LoadImage(); 
-		//pressing mouse event 
+		this.addMouseListener(new MouseAdapter() { //method to ensure that bird goes upward on click of the mouse
+			public void mousePressed (MouseEvent e) {
+				super.mousePressed(e); //mouse pressed -- as soon as you press button, action gets fired
+				bi.goUpwards(); //sets speed to negative value to move bird up
+			}
+		});
 		
 	}
 
@@ -47,4 +54,8 @@ public class GamePanel extends JPanel{
 		wi.drawWall(g); //draws first wall on game panel
 		wi2.drawWall(g); //draws second wall and loops through
 	} 
+	
+	public void Move() {
+		bi.birdMovement();
+	}
 }
