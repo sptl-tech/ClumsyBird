@@ -21,6 +21,7 @@ public class GamePanel extends JPanel{
 	private BufferedImage img;
 	
 	BirdImage bi = new BirdImage();
+	//2 set of walls on the screen at any given time
 	WallImage wi = new WallImage(GamePanel.WIDTH);
 	WallImage wi2 = new WallImage(GamePanel.WIDTH + (GamePanel.WIDTH/2));
 	
@@ -57,5 +58,7 @@ public class GamePanel extends JPanel{
 	
 	public void Move() {
 		bi.birdMovement();
+		wi.wallMovement();
+		wi2.wallMovement();
 	}
 }

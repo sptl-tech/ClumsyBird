@@ -17,6 +17,8 @@ public class WallImage {
 	private int height = GamePanel.HEIGHT-y; //uses random y coordinate given restrictions 
 	private int gap = 200; //gap between the walls
 	
+	public int speed = -6;
+	
 	private BufferedImage img = null;
 	
 	public WallImage (int x) {
@@ -38,6 +40,18 @@ public class WallImage {
 	public void drawWall(Graphics g) {
 		g.drawImage(img, x, y, null); //bottom wall 
 		g.drawImage(img, x, (-GamePanel.HEIGHT) + (y-gap), null); //upper wall --  starts from top of game panel and with random values, will generate walls on the top part of game panel
+	}
+	
+	public void wallMovement() {
+		//will continuously decrease x coordinate to move the walls
+		x+=speed; //only worried about x coordinate, bc wall moves parallel to x axis
+		
+		//need to reset wall position once it is out of screen 
+		if (x <=-widthWall) {
+			x = GamePanel.WIDTH;
+			y = r.nextInt(GamePanel.HEIGHT-400) + 200;
+			height = GamePanel.HEIGHT-y; 
+		}
 	}
 	
 }

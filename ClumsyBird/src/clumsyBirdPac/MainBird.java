@@ -30,7 +30,7 @@ public class MainBird {
 		timer = new Timer(20, new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //every 20 miliseconds, we call the repaint and move method to keep game functioning
 				gp.repaint();
 				gp.Move();
 				
