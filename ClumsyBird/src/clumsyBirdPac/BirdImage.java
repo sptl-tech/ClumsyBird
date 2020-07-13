@@ -1,6 +1,7 @@
 package clumsyBirdPac;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -15,7 +16,7 @@ public class BirdImage {
 	public static int x = (GamePanel.WIDTH / 2) - birdDiameter/2; //x coordinate for bird -- places bird halfway across the screen
 	public static int y = (GamePanel.HEIGHT/2); //y coordinate of bird -- places bird halfway up the screen 
 	
-	private static int speed =2;
+	public static int speed =2;
 	private int accel = 1;
 	
 	public BirdImage() {
@@ -50,10 +51,15 @@ public class BirdImage {
 		
 	}
 
-	private void reset() { 
+	public static void reset() { 
 		speed = 2;
 		y = GamePanel.HEIGHT/2;
 		
+	}
+	
+	public static Rectangle getBirdRect() {
+		Rectangle birdRect = new Rectangle(x, y, birdDiameter, 35);
+		return birdRect;
 	}
 	
 }

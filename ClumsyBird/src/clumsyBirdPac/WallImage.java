@@ -1,12 +1,13 @@
 package clumsyBirdPac;
 
 import java.awt.Graphics;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
-
+import java.awt.Rectangle;
 public class WallImage {
 	private Random r = new Random();
 	//coordinates for the walls
@@ -41,6 +42,12 @@ public class WallImage {
 		g.drawImage(img, x, y, null); //bottom wall 
 		g.drawImage(img, x, (-GamePanel.HEIGHT) + (y-gap), null); //upper wall --  starts from top of game panel and with random values, will generate walls on the top part of game panel
 	}
+	private void wallReset() {
+		y = r.nextInt(GamePanel.HEIGHT-400) + 200;
+		height = GamePanel.HEIGHT-y;
+		
+		
+	}
 	
 	public void wallMovement() {
 		//will continuously decrease x coordinate to move the walls
@@ -52,6 +59,19 @@ public class WallImage {
 			y = r.nextInt(GamePanel.HEIGHT-400) + 200;
 			height = GamePanel.HEIGHT-y; 
 		}
+		
+		//takes in arguments for each of the wall obstacles (thier coordinates, width, and height)
+		Rectangle lowerRect = new Rectangle(x, y, widthWall, height); 
+		Rectangle upperRect = new Rectangle(x, 0, widthWall, GamePanel.HEIGHT-(height + gap)); //top wall height is 0 (on top); Gets entire height and subtracts that from the height of lower wall + gap between walls
+		
+		if (lowerRect.intersects(BirdImage.getBirdRect()) || upperRect.intersects(BirdImage.getBirdRect())) { //if the bird hits a wall, we run the helper methods to reset bird and wall
+			BirdImage.reset();
+			wallReset();
+		}
+		
+		
 	}
+
+	
 	
 }
