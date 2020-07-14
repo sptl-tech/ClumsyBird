@@ -45,7 +45,7 @@ public class WallImage {
 	private void wallReset() {
 		y = r.nextInt(GamePanel.HEIGHT-400) + 200;
 		height = GamePanel.HEIGHT-y;
-		
+		GamePanel.gameOver = true;
 		
 	}
 	

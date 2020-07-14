@@ -54,6 +54,7 @@ public class BirdImage {
 	public static void reset() { 
 		speed = 2;
 		y = GamePanel.HEIGHT/2;
+		GamePanel.gameOver = true; //if bird hits top or bottom of screen, game ends
 		
 	}
 	

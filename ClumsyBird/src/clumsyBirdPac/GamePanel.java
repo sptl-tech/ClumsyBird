@@ -14,8 +14,10 @@ public class GamePanel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static boolean gameOver = false;
 	public static final int WIDTH = 600;
-	public static final int HEIGHT = 900;
+	public static final int HEIGHT = 800;
 	
 	private int xCoor = 0; //inital x coordinate value which will change as game goes on
 	private BufferedImage img;
@@ -60,5 +62,12 @@ public class GamePanel extends JPanel{
 		bi.birdMovement();
 		wi.wallMovement();
 		wi2.wallMovement();
+		
+		//once the bird hits a wall, it resets back to start of game
+		if(gameOver == true) {
+			wi.x = GamePanel.WIDTH;
+			wi2.x = GamePanel.WIDTH + (GamePanel.WIDTH/2);
+			gameOver = false;
+		}
 	}
 }
