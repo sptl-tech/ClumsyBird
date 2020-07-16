@@ -18,7 +18,7 @@ public class WallImage {
 	private int height = GamePanel.HEIGHT-y; //uses random y coordinate given restrictions 
 	private int gap = 200; //gap between the walls
 	
-	public int speed = -6;
+	public static int speed = -6;
 	
 	private BufferedImage img = null;
 	

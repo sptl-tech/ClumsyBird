@@ -53,6 +53,8 @@ public class GamePanel extends JPanel{
 		super.paint(g);
 		
 		g.drawImage(img, xCoor, 0, null); //draws the initial game panel
+		g.drawImage(img, xCoor + 2400, 0, null); 
+
 		bi.drawBird(g); //draws a bird on the game panel
 		wi.drawWall(g); //draws first wall on game panel
 		wi2.drawWall(g); //draws second wall and loops through
@@ -68,6 +70,11 @@ public class GamePanel extends JPanel{
 			wi.x = GamePanel.WIDTH;
 			wi2.x = GamePanel.WIDTH + (GamePanel.WIDTH/2);
 			gameOver = false;
+		}
+		
+		xCoor += WallImage.speed; //starts at 0 and keeps decrementing -6 (until it reaches -2400 - width of background)
+		if(xCoor == -2400) { //once we reach the width of background image, reset x coordinate to make background move
+			xCoor = 0;
 		}
 	}
 }
