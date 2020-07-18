@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 public class BirdImage {
 	
 	private BufferedImage img = null;
-	private static int birdDiameter = 40;
+	private static int birdDiameter = 36;
 	
 	//Coordinates for bird -- places bird initially middle of the screen
 	public static int x = (GamePanel.WIDTH / 2) - birdDiameter/2; //x coordinate for bird -- places bird halfway across the screen
@@ -55,7 +55,7 @@ public class BirdImage {
 		speed = 2;
 		y = GamePanel.HEIGHT/2;
 		GamePanel.gameOver = true; //if bird hits top or bottom of screen, game ends
-		
+		GamePanel.score = 0; //reset score to 0 after hitting a wall or going out of bounds
 	}
 	
 	public static Rectangle getBirdRect() {

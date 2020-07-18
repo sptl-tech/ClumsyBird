@@ -1,5 +1,6 @@
 package clumsyBirdPac;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,8 @@ public class GamePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	public static boolean gameOver = false;
+	public static int score = 0; 
+	
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 800;
 	
@@ -58,6 +61,9 @@ public class GamePanel extends JPanel{
 		bi.drawBird(g); //draws a bird on the game panel
 		wi.drawWall(g); //draws first wall on game panel
 		wi2.drawWall(g); //draws second wall and loops through
+		
+		g.setFont(new Font("Tahoma", Font.BOLD, 40));
+		g.drawString("Score " + score, WIDTH/2, 100); //displays score card w/ font characteristics and places on top of screen 
 	} 
 	
 	public void Move() {
@@ -75,6 +81,11 @@ public class GamePanel extends JPanel{
 		xCoor += WallImage.speed; //starts at 0 and keeps decrementing -6 (until it reaches -2400 - width of background)
 		if(xCoor == -2400) { //once we reach the width of background image, reset x coordinate to make background move
 			xCoor = 0;
+		}
+		
+		if(wi.x == BirdImage.x || wi2.x == BirdImage.x) { //if the bird passes the x coordinate of either top or bottom wall
+			score += 1; //increment every time bird passes a wall
+			
 		}
 	}
 }
