@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+
 import java.awt.Rectangle;
 public class WallImage {
 	private Random r = new Random();
@@ -60,13 +62,30 @@ public class WallImage {
 			height = GamePanel.HEIGHT-y; 
 		}
 		
-		//takes in arguments for each of the wall obstacles (thier coordinates, width, and height)
+		//takes in arguments for each of the wall obstacles (their coordinates, width, and height)
 		Rectangle lowerRect = new Rectangle(x, y, widthWall, height); 
 		Rectangle upperRect = new Rectangle(x, 0, widthWall, GamePanel.HEIGHT-(height + gap)); //top wall height is 0 (on top); Gets entire height and subtracts that from the height of lower wall + gap between walls
 		
 		if (lowerRect.intersects(BirdImage.getBirdRect()) || upperRect.intersects(BirdImage.getBirdRect())) { //if the bird hits a wall, we run the helper methods to reset bird and wall
-			BirdImage.reset();
-			wallReset();
+			boolean option = GamePanel.popUpMessage();
+			
+			if (option == true) {
+				try {
+					Thread.sleep(500);
+					
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+				BirdImage.reset();
+				wallReset();
+			}
+			else { //uses method from main bird to retrieve the window, dispose of it, and restart the timer 
+				JFrame frame = MainBird.getWindow();
+				frame.dispose();
+				MainBird.timer.stop();
+				
+			}
+			
 		}
 		
 		

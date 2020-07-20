@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 public class MainBird {
 
 	//Window: 1st panel is the intro screen -> if clicked, game starts and goes to 2nd panel w/ game
-	private JFrame window;
-	private Timer timer;
+	private static JFrame window;
+	public static Timer timer;
 	
 	public MainBird() {
 		window = new JFrame();
@@ -58,10 +58,15 @@ public class MainBird {
 		
 	}
 	
+	//method to retrieve entire window so it can be terminated if user does not want to continue playing
+	public static JFrame getWindow() {
+		return window;
+	}
+	
 	public static void main(String[] args) {
 		MainBird mb = new MainBird();
 		mb.rendering();
 		
 	}
-
+	
 }

@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 public class BirdImage {
 	
@@ -42,7 +43,22 @@ public class BirdImage {
 			speed += accel; 
 			y+=speed; //changes the birds relative height
 		}else { //sets back to initial values
-			reset();
+	boolean option = GamePanel.popUpMessage();
+			
+			if (option == true) {
+				try {
+					Thread.sleep(500);
+					
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+				reset();
+			}
+			else {
+				JFrame frame = MainBird.getWindow();
+				frame.dispose();
+				MainBird.timer.stop();
+			}
 		}
 	}
 	

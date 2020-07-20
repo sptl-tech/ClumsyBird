@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
@@ -86,6 +87,17 @@ public class GamePanel extends JPanel{
 		if(wi.x == BirdImage.x || wi2.x == BirdImage.x) { //if the bird passes the x coordinate of either top or bottom wall
 			score += 1; //increment every time bird passes a wall
 			
+		}
+	}
+	
+	public static boolean popUpMessage() {
+		int result = JOptionPane.showConfirmDialog(null, "Your Score is " + score + "\n Do you want to restart?", "Game Over", JOptionPane.YES_NO_OPTION);
+		
+		if (result == JOptionPane.YES_OPTION) { //boolean returned if user clicks yes (true) or no (false)
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 }
