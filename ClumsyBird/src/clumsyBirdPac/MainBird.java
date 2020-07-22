@@ -11,7 +11,7 @@ public class MainBird {
 	//Window: 1st panel is the intro screen -> if clicked, game starts and goes to 2nd panel w/ game
 	private static JFrame window;
 	public static Timer timer , timer2;
-	private int proceed = 3; 
+	private int proceed = 4; 
 	
 	public MainBird() {
 		window = new JFrame();
