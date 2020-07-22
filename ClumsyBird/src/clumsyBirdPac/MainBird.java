@@ -10,7 +10,8 @@ public class MainBird {
 
 	//Window: 1st panel is the intro screen -> if clicked, game starts and goes to 2nd panel w/ game
 	private static JFrame window;
-	public static Timer timer;
+	public static Timer timer , timer2;
+	private int proceed = 3; 
 	
 	public MainBird() {
 		window = new JFrame();
@@ -54,10 +55,27 @@ public class MainBird {
 		gp.setVisible(true);
 		window.revalidate();
 		
-		timer.start();
+		timer2 = new Timer(1000, new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) { //used to start the count down and once it is over, the game will start
+				proceed--;
+				GamePanel.proceed = proceed; //count down is initialized to 3
+				GamePanel.start = true;
+				gp.repaint();
+				if (proceed == 0) {
+					timer2.stop();
+					timer.start();
+					GamePanel.start=false;
+				}
+			}
+			
+		});
 		
+		timer2.start(); 
 	}
 	
+
 	//method to retrieve entire window so it can be terminated if user does not want to continue playing
 	public static JFrame getWindow() {
 		return window;

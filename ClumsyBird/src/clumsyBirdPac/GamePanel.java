@@ -17,8 +17,10 @@ public class GamePanel extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public static boolean gameOver = false;
-	public static int score = 0; 
+	public static boolean gameOver = false; //once you lose 
+	public static int score = 0; //score to be incremented for every wall pass
+	public static boolean start = false; //boolean for timer 
+	public static int proceed = -1; 
 	
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 800;
@@ -65,6 +67,12 @@ public class GamePanel extends JPanel{
 		
 		g.setFont(new Font("Tahoma", Font.BOLD, 40));
 		g.drawString("Score " + score, WIDTH/2, 100); //displays score card w/ font characteristics and places on top of screen 
+		
+		if (start == true) { //countdown timer to buffer between clicking to start and game start
+			g.setFont(new Font("Tahoma", Font.BOLD, 150));
+			g.drawString(Integer.toString(proceed), WIDTH/2-75, 250); //prints count down
+		}
+		
 	} 
 	
 	public void Move() {
