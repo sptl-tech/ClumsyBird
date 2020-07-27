@@ -15,7 +15,7 @@
 ---
 
 ## Description
-Video Guide of all Features - [Video](https://drive.google.com/file/d/1-uYZVd0fhgjsjVbMPWgTYTUMVylddx1l/view?usp=sharing)
+Short Video Walkthrough of application - [Video](https://drive.google.com/file/d/1FyT0WPU_B-s9Pr6067CtLgYXayjoJ3zR/view?usp=sharing)
 
 This project was inspired by the popular game Flappy Bird. The game utilizes Java AWT to create GUI objects and renders a game panel class which contains random heights of the wall panel (obstacles) every 20 miliseconds. The users can control the bird's path with thier mouse and this is controlled by an abstract adapter class called MouseAdapter() which receives mouse
 events.
